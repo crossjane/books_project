@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "image.aladin.co.kr",
         pathname: "/product/**",
       },
+      {
+        protocol: "https",
+        hostname: "developers.kakao.com",
+        pathname: "/assets/**",
+      },
     ],
   },
 };

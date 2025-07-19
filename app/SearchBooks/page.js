@@ -4,9 +4,6 @@ import Image from "next/image";
 
 async function SearchBooks({ searchParams }) {
   const params = await searchParams;
-  // 검색어 불러오기기
-  // 왜 저번에는 await를썼지 파람 불러올때때 왜 비동기..? 여기서는 왜 객체
-  // const searchKeyword =  searchParams ?.searchKeyword ?? "";
 
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -16,7 +13,6 @@ async function SearchBooks({ searchParams }) {
 
   const response = await fetch(aladinApi);
   const finalData = await response.json();
-  // console.log("finaldata", finalData);
 
   return (
     <>

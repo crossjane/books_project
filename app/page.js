@@ -1,8 +1,19 @@
+"use client";
+
 import React from "react";
 // import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { signIn } from "next-auth/react";
 
-async function Home() {
+function Home() {
+  async function onClickKakaoLogin() {
+    console.log("onClickKakaoLogin");
+    await signIn("kakao", {
+      redirect: false,
+      callbackUrl: "/login/kakao",
+    });
+  }
   return (
     <>
       <div className="bg-gray-100">
@@ -10,12 +21,12 @@ async function Home() {
           {/* 상단 */}
           <div className="flex flex-row mt-20 ">
             <div className="flex flex-1">내 서재</div>
-            <Link
+            {/* <Link
               className="flex text-[13px] bg-blue-500 w-[130px] h-[30px] justify-center items-center rounded-md text-white text-center cursor-pointer"
               href={"/SearchBooks"}
             >
               책 찾으러 가기
-            </Link>
+            </Link> */}
           </div>
           {/* 책 카드 리스트 */}
           <div className="flex flex-row">
@@ -37,6 +48,22 @@ async function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="flex justify-center items-center min-h-screen bg-gray-100">
+          <button
+            className="flex items-center justify-center px-4 py-2 bg-[#FEE500] text-[#191600] font-semibold rounded-md shadow hover:brightness-90 transition"
+            onClick={onClickKakaoLogin}
+          >
+            <Image
+              src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+              alt="Kakao Icon"
+              width={50}
+              height={50}
+              className="w-5 h-5 mr-2"
+            />
+            카카오로 로그인
+          </button>
         </div>
       </div>
     </>
