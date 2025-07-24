@@ -15,7 +15,7 @@ function Search() {
     router.push(`?searchKeyword=${searchKeywordInput}`);
   }
 
-  //   해줄필요가 없나?
+
   useEffect(() => {
     if (searchParams && searchParams.get("searchKeyword")) {
       setSearchKeywordInput(searchParams.get("searchKeyword"));
